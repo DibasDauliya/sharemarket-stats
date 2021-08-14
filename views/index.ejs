@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        margin: 0;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1100px;
+        padding: 25px;
+        margin: 5px auto;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      tr,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+
+      .bg-green {
+          background-color: #5CB85C;
+          color: #fff;
+      }
+      .bg-yellow {
+          background-color: #ed9c28;
+          color: #fff;
+
+      }
+      
+      .bg-red {
+          background-color: #D2322D;
+          color: #fff;
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Market is <%= isOpen %></p>
+<p>As of <%= asOf %></p>
+
+      <table id="table">
+        <thead>
+          <th>Symbol</th>
+          <th>LTP</th>
+          <th>LTV</th>
+          <th>% Change</th>
+          <th>High</th>
+          <th>Low</th>
+        </thead>
+        <tbody>
+          <% data.forEach(value => { %>
+            <% if(value.percentageChange == 0) {%> 
+            <tr class="bg-yellow">
+            <%} else if(value.percentageChange < 1) {%> 
+            <tr class="bg-red">
+            <%} else  {%> 
+              <tr class="bg-green">
+              <% } %> 
+              <td><%= value.symbol %> </td>
+              <td><%= value.lastTradedPrice %></td>
+              <td><%= value.lastTradedVolume %></td>
+              <td><%= value.percentageChange.toFixed(2) %></td>
+              <td><%= value.highPrice %></td>
+              <td><%= value.lowPrice %></td>
+            </tr>
+            <% }) %> 
+        </tbody>
+      </table>
+    </div>
+    </body>
+    </html>

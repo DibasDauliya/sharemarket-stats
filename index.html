@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        margin: 0;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1100px;
+        padding: 25px;
+        margin: 5px auto;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      tr,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table id="table">
+        <thead>
+          <th>Symbol</th>
+          <th>LTP</th>
+          <th>LTV</th>
+          <th>% Change</th>
+          <th>High</th>
+          <th>Low</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- <script>
+        const table = document.getElementById('table')
+
+const URL1 = 'https://newweb.nepalstock.com/api/nots/securityDailyTradeStat/58'
+
+// async function getsecurityDailyTradeStat() {
+//   const res = await fetch(URL1, {
+//     mode: 'no-cors',
+//     header: {
+//       'Access-Control-Allow-Origin': '*'
+//     }
+//   })
+//   const resData = await res.json()
+//   return resData
+// }
+
+// getsecurityDailyTradeStat().then((data) => console.log(data))
+
+fetch(URL1, {
+  mode: 'no-cors',
+  header: {
+    'Access-Control-Allow-Origin': '*'
+  }
+})
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+
+    </script> -->
+  </body>
+</html>
